@@ -1,0 +1,408 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('Domestic.jpg'); /* Path to your background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center; /* Center the background image */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.welcome-message {
+    font-size: 24px;
+    color: #333; /* Dark grey text */
+    margin-bottom: 300px;
+}
+
+.widget-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.widget-icon.hidden {
+    display: none;
+}
+
+.widget-container {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 350px;
+    height: 400px;
+    background-color: white; /* White background */
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow */
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.widget-logo {
+    height: 24px; /* Adjust the height as needed */
+    margin-right: 10px;
+}
+
+.widget-body {
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.close-widget {
+    background: none;
+    border: none;
+    color: white; /* White text */
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none; /* Hides the element */
+}
+
+.message-input-container {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ccc; /* Light grey border */
+    padding: 10px;
+    background-color: #f1f1f1; /* Light grey background */
+    position: relative;
+}
+
+.file-input {
+    display: none; /* Hide the actual file input element */
+}
+
+.attach-file {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc; /* Light grey border */
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.send-message {
+    padding: 10px;
+    background-color: #007bff; /* Blue background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.send-message:hover {
+    background-color: #0056b3; /* Darker blue background */
+}
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.message-container.outgoing {
+    justify-content: flex-end;
+    min-width: 150px;
+    max-width: 100%;
+    text-align: left;
+}
+
+.message-container.incoming {
+    justify-content: flex-start;
+}
+
+.message-text {
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 60%;
+    word-wrap: break-word;
+    margin-bottom: 10px
+}
+
+.message-text.outgoing {
+    background-color: rgb(15, 162, 217); /* Blue background for outgoing messages */
+    color: white; /* White text */
+}
+
+.message-text.incoming {
+    background-color: rgb(60, 60, 60); /* Grey background for incoming messages */
+    color: white; /* White text */
+}
+
+
+
+
+.delete-session {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.delete-session i {
+    font-size: 24px; /* Adjust size as needed */
+    color: black; /* Adjust color as needed */
+}
+
+.custom-launcher {
+    position: fixed;
+    top: 150px;
+    left: 20px;
+    margin-left: 200px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+
+.custom-launcher.hidden {
+    display: none;
+}
+
+.custom-launcher:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+
+
+
+/* Style for the message container */
+.message-container {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+   
+    
+}
+
+/* Style for incoming messages */
+.message-container.incoming .message-text {
+    background-color: #ECF5F8;
+    color: #333;
+    align-self: flex-start;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 100%;
+
+    
+}
+
+/* Style for outgoing messages */
+.message-container.outgoing .message-text {
+    background-color: #007bff;
+    color: #fff;
+    align-self: flex-end;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    margin-top: 10px;
+    max-height: 45px;
+    
+    
+}
+
+/* Style for the button container */
+.button-container {
+    display: flex;
+    /*flex-wrap: wrap;*/
+    flex-direction: column; 
+    margin-top: 5px;
+    align-self: center;
+}
+
+/* Style for quick reply buttons */
+
+.quick-reply-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    align-self: center;
+}
+
+.quick-reply-button:hover {
+    background-color: #0056b3;
+}
+.message-text.incoming {
+   
+    text-align: left;
+}
+ 
+
+
+.message-container.incoming {
+       float: left;
+    background: #ECF5F8;
+    color: #4A4A49;
+    margin-left: 10px;
+    border-radius: 8px 8px 8px 0;
+    animation: floatup .5s forwards;
+    min-width: 65px;
+    padding: 10px;
+    max-width: 80%;
+   
+    text-align: left;
+    justify-content: left;
+}
+
+
+
+
+.card-container {
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 100%;
+    text-align: left;
+}
+
+
+.card-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+.card-container h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333; 
+}
+
+
+.card-container p {
+    margin: 0;
+    font-size: 14px;
+    color: #666; 
+    white-space: pre-line; 
+}
+
+.card-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/*calendar*/
+/* Style for the Flatpickr calendar */
+.flatpickr-calendar {
+    z-index: 10000; /* Ensure the calendar appears above other elements */
+}
+
+/* Style for the message input container */
+.message-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+
+.message-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.send-message {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.send-message:hover {
+    background-color: #0056b3;
+}
+
+.calendar-button {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.calendar-button i {
+    font-size: 16px;
+}
+
+
+
+
+.date-input { 
+    display: none;  
+    position: absolute; 
+    bottom: 50px; /* Adjust this value to position the calendar correctly */ 
+    left: 10px; 
+    width: calc(100% - 20px); 
+    z-index: 1000; 
+} 
+
+
+
+.send-message {
+    background-color: #28a745; /* Green color for send button */
+}
+
+
+
+
+
+
